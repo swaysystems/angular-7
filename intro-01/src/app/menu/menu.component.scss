@@ -1,0 +1,29 @@
+header {
+    background: #ff9800;
+
+    .logo {
+        font-weight: bold;
+    }
+
+    nav {
+        justify-self: left;
+    
+        ul {
+            list-style-type: none;
+            margin: 0; padding: 0;
+
+            li {
+                float: left;
+
+                a {
+                    padding: 1.5em; 
+                    font-size: .8em;
+
+                    &:hover {
+                        background: #e65100;
+                    }
+                }
+            }
+        }
+    }
+}
