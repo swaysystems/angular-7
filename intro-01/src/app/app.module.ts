@@ -7,6 +7,7 @@ import { MenuComponent } from './menu/menu.component';
 import { AboutComponent } from './about/about.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { HomeComponent } from './home/home.component'; 
+import {FormsModule} from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -15,10 +16,12 @@ import { HomeComponent } from './home/home.component';
     AboutComponent,
     ContactUsComponent,
     HomeComponent
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

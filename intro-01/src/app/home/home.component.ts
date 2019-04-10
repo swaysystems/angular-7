@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  key:string="sway";
+  keyList:string[]=[];
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  add(){
+    this.keyList.push(this.key);
+  }
+
+  reset(){
+    this.keyList=[];
   }
 
 }
