@@ -1,0 +1,57 @@
+  
+<hr>
+<h2>*ngIf</h2>
+
+  <h2 *ngIf="false; else elseBlock">Siva</h2>
+
+<ng-template #elseBlock>
+  <h2>Siva K</h2>
+</ng-template>
+
+
+<div *ngIf="true; then thenBlock2;else elseBlock2"></div>
+
+<ng-template #thenBlock2>
+  <h2>thenBlock2</h2>
+</ng-template>
+
+<ng-template #elseBlock2>
+  <h2>elseBlock2</h2>
+</ng-template>
+
+<hr>
+<h2>*ngSwitch</h2>
+
+ <div [ngSwitch]="sVal">
+   <div *ngSwitchCase="'siva'">Siva</div>
+   <div *ngSwitchCase="'sway'">Sway</div>
+   <div *ngSwitchDefault>output2{{sVal}}</div>
+ </div>
+
+<hr>
+<h2>*ngFor</h2>
+<input name="sQuery" [(ngModel)]="sQuery">
+  <button (click)="searchUsers()">Search</button>
+
+
+  
+  <table *ngIf="userSearchData!=undefined" border="1" >
+    
+     <tr>
+       <th>S.No</th>
+       <th>Name</th>
+       <th>Avatar</th>
+       <th>URL</th>
+      </tr>
+
+      <tr *ngFor="let item of userSearchData.items;let sno=index;let oddRow=odd;let evenRow=even;let firstRow=first;let lastRow=last" [ngClass]="{odd: oddRow,even:evenRow,first:firstRow,last:lastRow}" >
+          <td>{{sno+1}}</td>
+          <td>{{item.login}}</td>
+          <td> <img src="{{item.avatar_url}}" alt="Smiley face" height="52" width="52"></td>
+          <td><a href="{{item.html_url}}">{{item.html_url}}</a></td>
+         </tr>
+
+
+  </table>
+
+  <hr> 
