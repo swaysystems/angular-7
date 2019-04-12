@@ -1,0 +1,19 @@
+{{errorMsg}}
+<table  border="1" >
+    
+  <tr>
+    <th>S.No</th>
+    <th>Name</th>
+    <th>Avatar</th>
+    <th>URL</th>
+   </tr>
+
+   <tr *ngFor="let item of users;let sno=index;let oddRow=odd;let evenRow=even;let firstRow=first;let lastRow=last" [ngClass]="{odd: oddRow,even:evenRow,first:firstRow,last:lastRow}" >
+       <td>{{sno+1}}</td>
+       <td>{{item.login}}</td>
+       <td> <img src="{{item.avatar_url}}" alt="Smiley face" height="52" width="52"></td>
+       <td><a href="{{item.html_url}}">{{item.html_url}}</a></td>
+      </tr>
+
+
+</table>
