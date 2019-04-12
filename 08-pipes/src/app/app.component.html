@@ -1,0 +1,33 @@
+<h3>Pipes</h3>
+<table border="1">
+  <tr><th>Type</th><th>pipe</th><th>Examples</th></tr>
+  <tr><td>String</td><td>None</td><td>{{name}}</td></tr>
+  <tr><td></td><td>lowercase</td><td>{{name | lowercase}}</td></tr>
+  <tr><td></td><td>uppercase</td><td>{{name | uppercase}}</td></tr>
+  <tr><td></td><td>titlecase</td><td>{{name | titlecase}}</td></tr>
+  <tr><td></td><td>slice:3</td><td>{{name | slice:3}}</td></tr>
+  <tr><td></td><td>slice:3:6</td><td>{{name | slice:3:6}}</td></tr>
+  <tr><td>Object</td><td>None</td><td>{{object}}</td></tr>
+  <tr><td></td><td>json</td><td>{{object| json}}</td></tr>
+  <tr><td>Number</td><td>None</td><td>{{myNumber}}</td></tr>
+  <tr><td></td><td>number</td><td>{{myNumber | number}}</td></tr>
+  <tr><td></td><td>number:3.2</td><td>{{myNumber | number:'3.2'}}</td></tr>
+  <tr><td></td><td>number:5.2-6</td><td>{{myNumber | number:'5.2-6'}}</td></tr>
+  <tr><td></td><td>percent</td><td>{{myNumberPer | percent}}</td></tr>
+  <tr><td></td><td>currency</td><td>{{myNumberPer | currency}}</td></tr>
+  <tr><td></td><td>currency:'INR'</td><td>{{myNumberPer | currency:'INR'}}</td></tr>
+  <tr><td></td><td>currency:'INR':'code'</td><td>{{myNumberPer | currency:'INR':'code'}}</td></tr>
+
+  <tr><td>Date</td><td>None</td><td>{{myDate}}</td></tr>
+  <tr><td></td><td>date</td><td>{{myDate | date}}</td></tr>
+  <tr><td></td><td>date:'short'</td><td>{{myDate | date:'short'}}</td></tr>
+  <tr><td></td><td>date:'shortDate'</td><td>{{myDate | date:'shortDate'}}</td></tr>
+  <tr><td></td><td>date:'shortTime'</td><td>{{myDate | date:'shortTime'}}</td></tr>
+  <tr><td></td><td>date:'long'</td><td>{{myDate | date:'long'}}</td></tr>
+  <tr><td></td><td>date:'longDate'</td><td>{{myDate | date:'longDate'}}</td></tr>
+  <tr><td></td><td>date:'longTime'</td><td>{{myDate | date:'longTime'}}</td></tr>
+  <tr><td></td><td>date:'medium'</td><td>{{myDate | date:'medium'}}</td></tr>
+  <tr><td></td><td>date:'mediumDate'</td><td>{{myDate | date:'mediumDate'}}</td></tr>
+  <tr><td></td><td>date:'mediumTime'</td><td>{{myDate | date:'mediumTime'}}</td></tr>
+   
+</table>
