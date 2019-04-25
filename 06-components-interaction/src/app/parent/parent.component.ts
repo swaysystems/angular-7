@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ParentComponent implements OnInit {
 
-  public name ="Sway System"
+  public name ="Murali"
   public message;
   constructor() { }
 

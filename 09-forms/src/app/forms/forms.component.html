@@ -1,0 +1,86 @@
+<div class="container-fluid mb-5">
+  <h1>Sign In Form</h1>
+
+  <div class="alert alert-danger" *ngIf="errorMsg">
+      {{errorMsg}}
+    </div>
+  <form #signinform="ngForm" *ngIf="!submitted" novalidate (ngSubmit)="onSubmit()">
+   
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputEmail4">Email</label>
+        <input type="email" #formEmail="ngModel" required [class.is-invalid]="formEmail.invalid && formEmail.touched" class="form-control" id="inputEmail4" name="inputEmail4" placeholder="Email" [(ngModel)]="signInModel.email" >
+       <small class="text-danger" [class.d-none]="formEmail.valid || formEmail.untouched">Email is required</small>
+      </div>
+     
+      <div class="form-group col-md-6">
+        <label for="inputPassword4">Password</label>
+        <input type="password" class="form-control" id="inputPassword4" name="inputPassword4" placeholder="Password" [(ngModel)]="signInModel.password">
+      </div>
+    </div>
+
+    <fieldset class="form-group">
+        <div class="row">
+          <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
+          <div class="col-sm-10">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="radioGender" id="radioMale" value="Male" checked [(ngModel)]="signInModel.gender">
+              <label class="form-check-label" for="radioMale">
+                Male
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="radioGender" id="radioFemale" value="Female" [(ngModel)]="signInModel.gender" >
+              <label class="form-check-label" for="radioFemale">
+                Female
+              </label>
+            </div>
+            
+          </div>
+        </div>
+      </fieldset>
+
+      <div ngModelGroup="address">
+    <div class="form-group">
+      <label for="inputAddress">Address</label>
+      <input type="text" class="form-control" id="inputAddress" name="inputAddress" placeholder="1234 Main St" [(ngModel)]="signInModel.address1">
+    </div>
+    <div class="form-group">
+      <label for="inputAddress2">Address 2</label>
+      <input type="text" class="form-control" id="inputAddress2"  name="inputAddress2" placeholder="Apartment, studio, or floor"  [(ngModel)]="signInModel.address2">
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputCity">City</label>
+        <input type="text" class="form-control" id="inputCity" name="inputCity" [(ngModel)]="signInModel.city">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="inputState">State</label>
+        <select (blur)="validateState(formState.value)" (change)="validateState(formState.value)" id="inputState" #formState="ngModel" [class.is-invalid]="stateHasError && formState.touched" class="form-control" name="inputState" [(ngModel)]="signInModel.state"> 
+        <option value="default">Choose state</option>
+        <option *ngFor="let item of stateList">{{item.name}}</option>
+        </select>
+        <small class="text-danger" [class.d-none]="!stateHasError || formState.untouched">Please select State</small>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="inputZip">Zip</label>
+        <input type="text" #formZip="ngModel" pattern="^\d{6}$" required [class.is-invalid]="formZip.invalid && formZip.touched" class="form-control" id="inputZip" name="inputZip" [(ngModel)]="signInModel.zip">
+        <!--<small class="text-danger" [class.d-none]="formZip.valid || formZip.untouched">Zip is required and it must be 6 digits</small>-->
+        <div *ngIf="formZip.errors && (formZip.invalid || formZip.touched)">
+          <small class="text-danger" *ngIf="formZip.errors.required">Zip is required</small>
+          <small class="text-danger" *ngIf="formZip.errors.pattern" >Zip must be 6 digit</small>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="form-group">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="gridCheck" name="gridCheck" [(ngModel)]="signInModel.isSentNewsletter">
+        <label class="form-check-label" for="gridCheck">
+          Send Newsletter
+        </label>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="signinform.form.invalid || stateHasError"  >Sign in</button>
+  </form>
+</div>

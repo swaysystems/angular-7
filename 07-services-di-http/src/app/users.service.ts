@@ -15,7 +15,7 @@ export class UsersService {
 
   constructor(private http:HttpClient) { }
 
-  private url:string ="https://api.github.com/search/users?q=sways";
+  private url:string ="https://api1.github.com/search/users?q=sways";
 
   getUsersViaHttp():Observable<IResult>{
     return this.http.get<IResult>(this.url).pipe(catchError(this.httpErrorHandler))

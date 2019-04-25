@@ -20,7 +20,7 @@ export class ChildComponent implements OnInit {
   }
 
   clickEvent(){
-    this.childEvent.emit('Hey Parent by Child');
+    this.childEvent.emit('dsfsafasfsad');
   }
 
 }
