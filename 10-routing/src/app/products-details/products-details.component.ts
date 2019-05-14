@@ -14,7 +14,8 @@ export class ProductsDetailsComponent implements OnInit {
 
   ngOnInit() {
     /*let id=this.aRoute.snapshot.paramMap.get('id');
-    this.productId=parseInt(id);*/
+    this.productId=parseInt(id);
+    */
 
     this.aRoute.paramMap.subscribe((params:ParamMap) =>{
       let id=parseInt(params.get('id'));
@@ -24,17 +25,25 @@ export class ProductsDetailsComponent implements OnInit {
 
   goPrevious(){
 
-    this.productId=this.productId - 1;
-    this.router.navigate(['/products',this.productId]);
+    let previousId=this.productId - 1;
+    this.router.navigate(['/products',previousId]);
 
   }
   goNext(){
-    this.productId=this.productId + 1 ;
-    this.router.navigate(['/products',this.productId]);
+    let nextId=this.productId + 1 ;
+    this.router.navigate(['/products',nextId]);
   }
 
   goBack(){ 
-    this.router.navigate(['/products',{id:this.productId,test:"TestVal"}]);
+    //this.router.navigate(['/products',{id:this.productId,test:"TestVal"}]);
+    this.router.navigate(['../',{id:this.productId,test:"TestVal"}]);
   }
 
+  showOverview(){
+    this.router.navigate(['overview'],{relativeTo:this.aRoute});
+
+  }
+  showPrice(){
+    this.router.navigate(['price'],{relativeTo:this.aRoute});
+  }
 }

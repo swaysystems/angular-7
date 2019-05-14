@@ -28,7 +28,8 @@ export class ProductsComponent implements OnInit {
   }
 
   onSelect(product){
-    this.router.navigate(['products',product.id]);
+    //this.router.navigate(['products',product.id]);
+    this.router.navigate([product.id],{relativeTo:this.aRoute});
   }
 
   isSelected(product){
